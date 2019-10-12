@@ -26,9 +26,13 @@
     "webpack-cli": "latest"
   },
   "scripts": {
-    "start": "npm-run-all -p build serve",
-    "build": "webpack -w",
-    "serve": "nodemon --ignore ./build --exec babel-node -- server.js",
-    "production": "cross-env NODE_ENV=production npm start"
+    "preinstall": "npm run build",
+    "serve": "npm-run-all -p build serve",
+    "dev": "webpack -w",
+    "start": "nodemon --ignore ./build --exec babel-node -- server.js",
+    "build": "cross-env NODE_ENV=production webpack"
+  },
+  "engines": {
+    "node": "10.x"
   }
 }
