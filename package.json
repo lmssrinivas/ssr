@@ -26,11 +26,12 @@
     "webpack-cli": "latest"
   },
   "scripts": {
-    "preinstall": "npm run build",
     "serve": "npm-run-all -p build serve",
     "dev": "webpack -w",
     "start": "nodemon --ignore ./build --exec babel-node -- server.js",
-    "build": "NODE_ENV=production webpack"
+    "heroku-postbuild": "webpack -p",
+    "heroku-prebuild": "npm install --dev",
+    "build": "cross-env NODE_ENV=production webpack"
   },
   "engines": {
     "node": "10.x"
