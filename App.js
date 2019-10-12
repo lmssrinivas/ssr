@@ -15,13 +15,15 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import Avatar from '@material-ui/core/Avatar';
+import Schedule from './schedule'
+
 
 function Copyright() {
     return (
         <Typography variant="body2" color="textSecondary" align="center">
             {'Copyright © '}
             <Link color="inherit" href="https://material-ui.com/">
-                Your Website
+                mdobbala websites
             </Link>{' '}
             {new Date().getFullYear()}
             {'.'}
@@ -42,14 +44,34 @@ const useStyles = makeStyles(theme => ({
             listStyle: 'none',
         },
     },
+    headerContact: {
+        position: `absolute`,
+        top: `calc(60px)`,
+        // background: `#f24d5d`,
+        background: `linear-gradient(180deg, #f24d5d 0%, #a1051d 100%)`,
+        height: `50px`,
+        width: `100%`,
+        lineHeight: `50px`,
+        textAlign: `center`,
+        color: `#fff`,
+        textTransform: 'upperCase',
+        fontWeight: `400`,
+        fontSize: `20px`,
+        cursor: `pointer`
+    },
     appBar: {
         borderBottom: `1px solid ${theme.palette.divider}`,
+        backgroundColor : `hsla(0,0%,100%,.9)`,
+        boxShadow: `0 .5px 0 0 hsla(216,3%,66%,.5)`,
+        position: `fixed`
     },
     toolbar: {
         flexWrap: 'wrap',
     },
     toolbarTitle: {
         flexGrow: 1,
+        fontFamily: 'Mansalva',
+        color: '#00d2dc'
     },
     link: {
         margin: theme.spacing(1, 1.5),
@@ -88,6 +110,21 @@ const useStyles = makeStyles(theme => ({
         width: 60,
         height: 60,
     },
+    descriptionContainer : {
+        height : 200
+    },
+    button: {
+        margin: theme.spacing(1),
+        background: `#339ec2`,
+        padding: `8px 16px`,
+        borderRadius: `20px`,
+        opacity: `.9`,
+        marginLeft: `100px`
+    },
+    onlineDoc : {
+        height:200,
+        width: 300
+    }
 }));
 
 const tiers = [
@@ -102,35 +139,25 @@ const tiers = [
     },
     {
         title: 'Dr Kiran Kumar',
-        img:'',
-        subheader: 'Family Medicine',
+        img:'KK',
+        subheader: 'Cardiologist',
         price: '10 Years',
-        description: ['Dr Kiran is a consulting paediatrician empanelled at the Ankura Hospitals in Hyderabad. He is an expert in pediatric emergencies'],
+        description: ['Dr. Kiran  Kumar is Cardiologist and Primary Care physican , Hyderabad and has an experience of 10 years in this field.'],
         buttonText: 'Schedule appointment',
         buttonVariant: 'outlined',
-    },
-    {
-        title: 'Dr Phani',
-        subheader: 'Dentist',
-        img:'',
-        price: '5 years',
-        description: ['They make sure you fully understand what is going on with your teeth and how they can help'
-        ],
-        buttonText: 'Schedule appointment',
-        buttonVariant: 'outlined',
-    },
+    }
 ];
 const footers = [
     {
-        title: 'Company',
-        description: ['Team', 'History', 'Contact us', 'Locations'],
+        title: 'Support',
+        description: ['Help center', 'Contact us', 'Locations'],
     },
     {
-        title: 'Features',
-        description: ['Cool stuff', 'Random feature', 'Team feature', 'Developer stuff', 'Another one'],
+        title: 'Culture',
+        description: ['Reviews', 'Random feature', 'Team feature', 'Developer stuff'],
     },
     {
-        title: 'Resources',
+        title: 'Careers',
         description: ['Resource', 'Resource name', 'Another resource', 'Final resource'],
     },
     {
@@ -146,9 +173,11 @@ export default function Pricing() {
         <React.Fragment>
             <CssBaseline />
             <AppBar position="static" color="default" elevation={0} className={classes.appBar}>
+                <div className={classes.headerContact} data-reactid="4">We will soon launch our Online Doctor service</div>
                 <Toolbar className={classes.toolbar}>
                     <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
-                        Kukatpally Medical specialist (KMS)
+                        <i className="fas fa-user-md"></i> Kukatpally Medical specialist (KMS)
+                        <Button variant="contained" color="secondary" className={classes.button}> We are Hiring</Button>
                     </Typography>
                     <nav>
                         <Link variant="button" color="textPrimary" href="#" className={classes.link}>
@@ -167,9 +196,15 @@ export default function Pricing() {
                 </Toolbar>
             </AppBar>
             {/* Hero unit */}
+            <img src="https://wpstatic.heal.com/uploads/2017/08/heal-header.jpg" alt="Hero image"/>
+            <Container>
+                <Grid container spacing={4} justify="space-evenly">
+                    <Schedule/>
+                </Grid>
+            </Container>
             <Container maxWidth="sm" component="main" className={classes.heroContent}>
-                <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-                    Doctors
+                <Typography className={classes.sectionHeaders} component="h1" variant="h3" align="center" color="textPrimary" gutterBottom>
+                    Licensed, qualified doctors
                 </Typography>
                 <Typography variant="h5" align="center" color="textSecondary" component="p">
                     Best Doctors in the kukatpally area, schedule a visit online/phone call. We will soon extend our Online Doctor services
@@ -180,26 +215,27 @@ export default function Pricing() {
                 <Grid container spacing={5} alignItems="flex-end">
                     {tiers.map(tier => (
                         // Enterprise card is full width at sm breakpoint
-                        <Grid item key={tier.title} xs={12} sm={tier.title === 'Enterprise' ? 12 : 6} md={4}>
+                        <Grid item key={tier.title} xs={12} sm={tier.title === 'Enterprise' ? 12 : 6} md={6}>
+                            {/*<DoctorList/>*/}
                             <Card>
                                 <CardHeader
                                     title={tier.title}
                                     subheader={tier.subheader}
-                                    titleTypographyProps={{ align: 'center' }}
+                                    titleTypographyProps={{ align: 'center', variant: 'h5' }}
                                     subheaderTypographyProps={{ align: 'center' }}
                                     action={tier.title === 'Pro' ? <StarIcon /> : null}
                                     className={classes.cardHeader}
+                                    avatar=<Avatar alt="DR" src={tier.img} className={classes.bigAvatar} />
                                 />
                                 <CardContent>
                                     <div className={classes.cardPricing}>
-                                        <Avatar alt="DR D" src={tier.img} className={classes.bigAvatar} />
-                                        <Typography component="h2" variant="h3" color="textPrimary">
+                                        <Typography component="h2" variant="h4" color="textPrimary">
                                             {tier.price}
                                         </Typography>
                                         <Typography variant="h6" color="textSecondary">
                                         </Typography>
                                     </div>
-                                    <ul>
+                                    <ul className={classes.descriptionContainer}>
                                         {tier.description.map(line => (
                                             <Typography component="li" variant="subtitle1" align="center" key={line}>
                                                 {line}
@@ -216,6 +252,23 @@ export default function Pricing() {
                         </Grid>
                     ))}
                 </Grid>
+            </Container>
+
+            <Container maxWidth="sm" component="main" className={classes.heroContent}>
+                <Typography component="h1" variant="h3" align="center" color="textPrimary" gutterBottom>
+                    Online Doctor - How It Works
+                </Typography>
+                <Grid container xs={12}>
+                    <Grid item md={6}>
+                        <img  className={classes.onlineDoc} src="https://www.docto.com.au/assets/images/mock-hand-picked.jpg" alt="online doctor"/>
+                    </Grid>
+                    <Grid item md={6}>
+                        <Typography variant="h5" align="center" color="textSecondary" component="p">
+                            online hospital providing instant medical advice 24 hours/day and medical specialist video-consultions by appointment.
+                        </Typography>
+                    </Grid>
+                </Grid>
+
             </Container>
             {/* Footer */}
             <Container maxWidth="md" component="footer" className={classes.footer}>

@@ -11,11 +11,13 @@ function renderFullPage(html, css) {
     <!DOCTYPE html>
     <html lang="en">
       <head>
-        <title>My page</title>
+        <title>KMS</title>
         <style id="jss-server-side">${css}</style>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <!-- Fonts to support Material Design -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Mansalva|Playfair+Display|Zhi+Mang+Xing&display=swap" rel="stylesheet"> 
       </head>
       <body>
         <script async src="build/bundle.js"></script>
