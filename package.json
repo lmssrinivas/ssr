@@ -31,7 +31,7 @@
     "start": "nodemon --ignore ./build --exec babel-node -- server.js",
     "heroku-postbuild": "webpack -p",
     "heroku-prebuild": "npm install --dev",
-    "build": "cross-env NODE_ENV=production webpack"
+    "build": "cross-env NODE_ENV=production node_modules/.bin/webpack"
   },
   "engines": {
     "node": "10.x"
