@@ -17,6 +17,7 @@ function renderFullPage(html, css) {
         <!-- Fonts to support Material Design -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet"> 
         <link href="https://fonts.googleapis.com/css?family=Mansalva|Playfair+Display|Zhi+Mang+Xing&display=swap" rel="stylesheet"> 
       </head>
       <body>

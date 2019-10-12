@@ -2,7 +2,7 @@ import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
+import Rating from '@material-ui/lab/Rating';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -15,7 +15,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import Avatar from '@material-ui/core/Avatar';
-import Schedule from './schedule'
+import Schedule from './schedule';
+import PersonIcon from '@material-ui/icons/Person';
+
+
 
 
 function Copyright() {
@@ -77,10 +80,11 @@ const useStyles = makeStyles(theme => ({
         margin: theme.spacing(1, 1.5),
     },
     heroContent: {
-        padding: theme.spacing(8, 0, 6),
+        padding: theme.spacing(8, 0, 6)
     },
-    cardHeader: {
-        backgroundColor: theme.palette.grey[200],
+    insuranceContent: {
+        padding: theme.spacing(8, 0, 6),
+        backgroundColor: '#fbfaf8'
     },
     cardPricing: {
         display: 'flex',
@@ -89,8 +93,6 @@ const useStyles = makeStyles(theme => ({
         marginBottom: theme.spacing(2),
     },
     footer: {
-        borderTop: `1px solid ${theme.palette.divider}`,
-        marginTop: theme.spacing(8),
         paddingTop: theme.spacing(3),
         paddingBottom: theme.spacing(3),
         [theme.breakpoints.up('sm')]: {
@@ -124,6 +126,19 @@ const useStyles = makeStyles(theme => ({
     onlineDoc : {
         height:200,
         width: 300
+    },
+    insuranceImg: {
+        width: 140,
+        height: 40
+    },
+    insuranceHeader: {
+        color: '#6c57e5'
+    },
+    sectionHeader: {
+        backgroundColor: '#fbfaf8'
+    },
+    doctorContainer: {
+        marginTop: `20px`,
     }
 }));
 
@@ -139,7 +154,7 @@ const tiers = [
     },
     {
         title: 'Dr Kiran Kumar',
-        img:'KK',
+        img:'',
         subheader: 'Cardiologist',
         price: '10 Years',
         description: ['Dr. Kiran  Kumar is Cardiologist and Primary Care physican , Hyderabad and has an experience of 10 years in this field.'],
@@ -202,7 +217,7 @@ export default function Pricing() {
                     <Schedule/>
                 </Grid>
             </Container>
-            <Container maxWidth="sm" component="main" className={classes.heroContent}>
+            <Container maxWidth="xl" component="main" className={classes.insuranceContent}>
                 <Typography className={classes.sectionHeaders} component="h1" variant="h3" align="center" color="textPrimary" gutterBottom>
                     Licensed, qualified doctors
                 </Typography>
@@ -211,12 +226,11 @@ export default function Pricing() {
                 </Typography>
             </Container>
             {/* End hero unit */}
-            <Container maxWidth="md" component="main">
+            <Container maxWidth="md" component="main" className={classes.doctorContainer}>
                 <Grid container spacing={5} alignItems="flex-end">
                     {tiers.map(tier => (
                         // Enterprise card is full width at sm breakpoint
                         <Grid item key={tier.title} xs={12} sm={tier.title === 'Enterprise' ? 12 : 6} md={6}>
-                            {/*<DoctorList/>*/}
                             <Card>
                                 <CardHeader
                                     title={tier.title}
@@ -225,11 +239,12 @@ export default function Pricing() {
                                     subheaderTypographyProps={{ align: 'center' }}
                                     action={tier.title === 'Pro' ? <StarIcon /> : null}
                                     className={classes.cardHeader}
-                                    avatar=<Avatar alt="DR" src={tier.img} className={classes.bigAvatar} />
+                                    avatar={tier.img ? <Avatar alt="DR" src={tier.img} className={classes.bigAvatar} /> : <PersonIcon className={classes.bigAvatar}/>}
                                 />
                                 <CardContent>
                                     <div className={classes.cardPricing}>
-                                        <Typography component="h2" variant="h4" color="textPrimary">
+                                        <Rating value={'4'} readOnly />
+                                        <Typography component="h4" variant="h4" color="textPrimary">
                                             {tier.price}
                                         </Typography>
                                         <Typography variant="h6" color="textSecondary">
@@ -243,11 +258,6 @@ export default function Pricing() {
                                         ))}
                                     </ul>
                                 </CardContent>
-                                <CardActions>
-                                    <Button fullWidth variant={tier.buttonVariant} color="primary">
-                                        {tier.buttonText}
-                                    </Button>
-                                </CardActions>
                             </Card>
                         </Grid>
                     ))}
@@ -268,11 +278,32 @@ export default function Pricing() {
                         </Typography>
                     </Grid>
                 </Grid>
+            </Container>
 
+            <Container maxWidth="xl" className={classes.insuranceContent}>
+                <Grid container xs={12}>
+                    <Grid item md={4}>
+                        <Typography variant="h5" align="center" color="textSecondary" component="p" className={classes.insuranceHeader}>
+                            Insurance may help with the cost
+                        </Typography>
+                    </Grid>
+                    <Grid item md={2}>
+                        <img  className={classes.insuranceImg} src="https://heal.com/uploads/2018/12/insurance-logo_pos_medicare_v2-2-e1568110376770.png" alt="insurance doctor"/>
+                    </Grid>
+                    <Grid item md={2}>
+                        <img  className={classes.insuranceImg} src="https://heal.com/uploads/2017/01/insurance-logo_pos_health-net.png" alt="insurance doctor"/>
+                    </Grid>
+                    <Grid item md={2}>
+                        <img  className={classes.insuranceImg} src="https://heal.com/uploads/2017/01/insurance-logo_pos_united-healthcare.png" alt="insurance doctor"/>
+                    </Grid>
+                    <Grid item md={2}>
+                        <img  className={classes.insuranceImg} src="https://heal.com/uploads/2017/01/insurance-logo_pos_cigna.png" alt="insurance doctor"/>
+                    </Grid>
+                </Grid>
             </Container>
             {/* Footer */}
             <Container maxWidth="md" component="footer" className={classes.footer}>
-                <Grid container spacing={4} justify="space-evenly">
+                <Grid container justify="space-evenly">
                     {footers.map(footer => (
                         <Grid item xs={6} sm={3} key={footer.title}>
                             <Typography variant="h6" color="textPrimary" gutterBottom>
