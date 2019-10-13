@@ -62,8 +62,7 @@ const useStyles = makeStyles(theme => ({
     appBar: {
         borderBottom: `1px solid ${theme.palette.divider}`,
         backgroundColor : `hsla(0,0%,100%,.9)`,
-        boxShadow: `0 .5px 0 0 hsla(216,3%,66%,.5)`,
-        position: `fixed`
+        boxShadow: `0 .5px 0 0 hsla(216,3%,66%,.5)`
     },
     toolbar: {
         flexWrap: 'wrap',
@@ -138,7 +137,6 @@ const useStyles = makeStyles(theme => ({
         marginTop: `20px`,
     }
 }));
-
 const tiers = [
     {
         title: 'Dr Deepthi Vadakattu',
@@ -192,13 +190,13 @@ export default function Pricing() {
                         <Button variant="contained" color="secondary" className={classes.button}> We are Hiring</Button>
                     </Typography>
                     <nav>
-                        <Link variant="button" color="textPrimary" href="#" className={classes.link}>
+                        <Link variant="button" color="textPrimary" href="#about" className={classes.link}>
                             About
                         </Link>
-                        <Link variant="button" color="textPrimary" href="#" className={classes.link}>
+                        <Link variant="button" color="textPrimary" href="#browse" className={classes.link}>
                             Browse Doctors
                         </Link>
-                        <Link variant="button" color="textPrimary" href="#" className={classes.link}>
+                        <Link variant="button" color="textPrimary" href="#service" className={classes.link}>
                             Services
                         </Link>
                     </nav>
@@ -208,14 +206,14 @@ export default function Pricing() {
                 </Toolbar>
             </AppBar>
             {/* Hero unit */}
-            <img src="assets/hero.jpg" alt="Doctors Hero Image" width='100%'/>
-            <Container>
+            <img src="assets/kms_doctors_hero.png" alt="Doctors Hero Image" width='100%'/>
+            <Container id='about'>
                 <Grid container spacing={4} justify="space-evenly">
                     <Schedule/>
                 </Grid>
             </Container>
             <Container maxWidth="xl" component="main" className={classes.insuranceContent}>
-                <Typography className={classes.sectionHeaders} component="h1" variant="h3" align="center" color="textPrimary" gutterBottom>
+                <Typography id='browse' className={classes.sectionHeaders} component="h1" variant="h3" align="center" color="textPrimary" gutterBottom>
                     Licensed, qualified doctors
                 </Typography>
                 <Typography variant="h5" align="center" color="textSecondary" component="p">
@@ -261,7 +259,7 @@ export default function Pricing() {
             </Container>
 
             <Container maxWidth="sm" component="main" className={classes.heroContent}>
-                <Typography component="h1" variant="h3" align="center" color="textPrimary" gutterBottom>
+                <Typography id='service' component="h1" variant="h3" align="center" color="textPrimary" gutterBottom>
                     Online Doctor - How It Works
                 </Typography>
                 <Grid container>
