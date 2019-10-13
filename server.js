@@ -21,7 +21,7 @@ function renderFullPage(html, css) {
         <link href="https://fonts.googleapis.com/css?family=Mansalva|Playfair+Display|Zhi+Mang+Xing&display=swap" rel="stylesheet">
       </head>
       <body>
-        <script async src="build/bundle.js"></script>
+        <script async src="bundle.js"></script>
         <div id="root">${html}</div>
       </body>
     </html>
@@ -50,7 +50,6 @@ function handleRender(req, res) {
 }
 
 const app = express();
-
 app.use('/', express.static('build'));
 
 // This is fired every time the server-side receives a request.
