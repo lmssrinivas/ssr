@@ -211,7 +211,7 @@ export default function Pricing() {
                 </Toolbar>
             </AppBar>
             {/* Hero unit */}
-            <img src="assets/hero.jpg" alt="Hero image"/>
+            <img src="assets/hero.jpg" alt="Hero image" width='100%'/>
             <Container>
                 <Grid container spacing={4} justify="space-evenly">
                     <Schedule/>
@@ -243,7 +243,7 @@ export default function Pricing() {
                                 />
                                 <CardContent>
                                     <div className={classes.cardPricing}>
-                                        <Rating value={'4'} readOnly />
+                                        <Rating value={4} readOnly />
                                         <Typography component="h4" variant="h4" color="textPrimary">
                                             {tier.price}
                                         </Typography>
@@ -268,7 +268,7 @@ export default function Pricing() {
                 <Typography component="h1" variant="h3" align="center" color="textPrimary" gutterBottom>
                     Online Doctor - How It Works
                 </Typography>
-                <Grid container xs={12}>
+                <Grid container>
                     <Grid item md={6}>
                         <img  className={classes.onlineDoc} src="assets/online-doctor.jpg" alt="online doctor"/>
                     </Grid>
@@ -281,7 +281,7 @@ export default function Pricing() {
             </Container>
 
             <Container maxWidth="xl" className={classes.insuranceContent}>
-                <Grid container xs={12}>
+                <Grid container>
                     <Grid item md={4}>
                         <Typography variant="h5" align="center" color="textSecondary" component="p" className={classes.insuranceHeader}>
                             Insurance may help with the cost
