@@ -183,7 +183,7 @@ export default function Pricing() {
         <React.Fragment>
             <CssBaseline />
             <AppBar position="sticky" color="default" elevation={0} className={classes.appBar}>
-                <div className={classes.headerContact} data-reactid="4">We will soon launch our Online Doctor service</div>
+                {/*<div className={classes.headerContact} data-reactid="4">We will soon launch our Online Doctor service</div>*/}
                 <Toolbar className={classes.toolbar}>
                     <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
                         <i className="fas fa-user-md" title="Kukatpally Medical specialist (KMS)"></i> Kukatpally Medical specialist (KMS)
