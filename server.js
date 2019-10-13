@@ -11,7 +11,7 @@ function renderFullPage(html, css) {
     <!DOCTYPE html>
     <html lang="en">
       <head>
-        <title>KMS</title>
+        <title>Doctors of Kukatpally </title>
         <style id="jss-server-side">${css}</style>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <!-- Fonts to support Material Design -->

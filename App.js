@@ -18,9 +18,6 @@ import Avatar from '@material-ui/core/Avatar';
 import Schedule from './schedule';
 import PersonIcon from '@material-ui/icons/Person';
 
-
-
-
 function Copyright() {
     return (
         <Typography variant="body2" color="textSecondary" align="center">
@@ -187,11 +184,11 @@ export default function Pricing() {
     return (
         <React.Fragment>
             <CssBaseline />
-            <AppBar position="static" color="default" elevation={0} className={classes.appBar}>
+            <AppBar position="sticky" color="default" elevation={0} className={classes.appBar}>
                 <div className={classes.headerContact} data-reactid="4">We will soon launch our Online Doctor service</div>
                 <Toolbar className={classes.toolbar}>
                     <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
-                        <i className="fas fa-user-md"></i> Kukatpally Medical specialist (KMS)
+                        <i className="fas fa-user-md" title="Kukatpally Medical specialist (KMS)"></i> Kukatpally Medical specialist (KMS)
                         <Button variant="contained" color="secondary" className={classes.button}> We are Hiring</Button>
                     </Typography>
                     <nav>
@@ -211,7 +208,7 @@ export default function Pricing() {
                 </Toolbar>
             </AppBar>
             {/* Hero unit */}
-            <img src="assets/hero.jpg" alt="Hero image" width='100%'/>
+            <img src="assets/hero.jpg" alt="Doctors Hero Image" width='100%'/>
             <Container>
                 <Grid container spacing={4} justify="space-evenly">
                     <Schedule/>
@@ -229,7 +226,6 @@ export default function Pricing() {
             <Container maxWidth="md" component="main" className={classes.doctorContainer}>
                 <Grid container spacing={5} alignItems="flex-end">
                     {tiers.map(tier => (
-                        // Enterprise card is full width at sm breakpoint
                         <Grid item key={tier.title} xs={12} sm={tier.title === 'Enterprise' ? 12 : 6} md={6}>
                             <Card>
                                 <CardHeader
