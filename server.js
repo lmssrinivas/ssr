@@ -51,7 +51,7 @@ function handleRender(req, res) {
 
 const app = express();
 
-app.use('/build', express.static('build'));
+app.use('/', express.static('build'));
 
 // This is fired every time the server-side receives a request.
 app.use(handleRender);

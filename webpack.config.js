@@ -1,4 +1,5 @@
 const path = require('path');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: './client.js',
@@ -15,6 +16,17 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
       },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [
+          'file-loader'
+        ]
+      },
     ],
   },
+  plugins: [
+    new CopyPlugin([
+      { from: 'assets', to: 'assets' }
+    ])
+  ]
 };

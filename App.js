@@ -145,7 +145,7 @@ const useStyles = makeStyles(theme => ({
 const tiers = [
     {
         title: 'Dr Deepthi Vadakattu',
-        img:'https://www.medintu.com/Admin/UploadedImages/Doctor_2557Dr._Deepthi_V_(KPHB)-Gynic.jpg',
+        img:'/assets/Doctor_2557Dr._Deepthi_V_(KPHB)-Gynic.jpg',
         subheader: 'Gynecologist/Obstetrician',
         price: '8 Years',
         description: ['Dr. Deepthi Vadakattu is Obstetrician and Gynecologist in Ankura Hospital Kukatpally, Hyderabad and has an experience of 5 years in this field.'],
@@ -211,7 +211,7 @@ export default function Pricing() {
                 </Toolbar>
             </AppBar>
             {/* Hero unit */}
-            <img src="https://wpstatic.heal.com/uploads/2017/08/heal-header.jpg" alt="Hero image"/>
+            <img src="assets/hero.jpg" alt="Hero image"/>
             <Container>
                 <Grid container spacing={4} justify="space-evenly">
                     <Schedule/>
@@ -270,7 +270,7 @@ export default function Pricing() {
                 </Typography>
                 <Grid container xs={12}>
                     <Grid item md={6}>
-                        <img  className={classes.onlineDoc} src="https://www.docto.com.au/assets/images/mock-hand-picked.jpg" alt="online doctor"/>
+                        <img  className={classes.onlineDoc} src="assets/online-doctor.jpg" alt="online doctor"/>
                     </Grid>
                     <Grid item md={6}>
                         <Typography variant="h5" align="center" color="textSecondary" component="p">
