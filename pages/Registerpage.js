@@ -50,6 +50,11 @@ const useStyles = makeStyles(theme => ({
     submit: {
         margin: theme.spacing(3, 0, 2),
     },
+    toolbarTitle: {
+        flexGrow: 1,
+        fontFamily: 'Mansalva',
+        color: '#00d2dc'
+    },
 }));
 
 export default function SignUp() {
@@ -59,11 +64,14 @@ export default function SignUp() {
         <Container component="main" maxWidth="xs">
             <CssBaseline />
             <div className={classes.paper}>
+                <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
+                    <i className="fas fa-user-md" title="Kukatpally Medical specialist (KMS)"></i> Kukatpally Medical specialist (KMS)
+                </Typography>
                 <Avatar className={classes.avatar}>
                     <LockOutlinedIcon />
                 </Avatar>
                 <Typography component="h1" variant="h5">
-                    Sign up
+                    MyHealth Sign up
                 </Typography>
                 <form className={classes.form} noValidate>
                     <Grid container spacing={2}>
@@ -114,9 +122,21 @@ export default function SignUp() {
                             />
                         </Grid>
                         <Grid item xs={12}>
+                            <TextField
+                                variant="outlined"
+                                required
+                                fullWidth
+                                name="confirm password"
+                                label="Confirm Password"
+                                type="password"
+                                id="confirm-password"
+                                autoComplete="current-password"
+                            />
+                        </Grid>
+                        <Grid item xs={12}>
                             <FormControlLabel
                                 control={<Checkbox value="allowExtraEmails" color="primary" />}
-                                label="I want to receive inspiration, marketing promotions and updates via email."
+                                label="I would like to receive myhealth newsletters."
                             />
                         </Grid>
                     </Grid>

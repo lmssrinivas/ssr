@@ -54,22 +54,35 @@ const useStyles = makeStyles(theme => ({
     submit: {
         margin: theme.spacing(3, 0, 2),
     },
+    toolbarTitle: {
+        flexGrow: 1,
+        fontFamily: 'Mansalva',
+        color: '#00d2dc'
+    },
+    signin: {
+        color: "white",
+        textDecoration: "none",
+    }
+
 }));
 
 export default function SignInSide() {
     const classes = useStyles();
 
     return (
-        <Grid container component="main" className={classes.root}>
+        <Grid container component="main" className={classes.root} justify="space-evenly">
             <CssBaseline />
-            <Grid item xs={false} sm={4} md={7} className={classes.image} />
-            <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+            {/*<Grid item xs={false} sm={4} md={7} className={classes.image} />*/}
+            <Grid item xs={12} sm={6} md={5}>
                 <div className={classes.paper}>
+                    <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
+                        <i className="fas fa-user-md" title="Kukatpally Medical specialist (KMS)"></i> Kukatpally Medical specialist (KMS)
+                    </Typography>
                     <Avatar className={classes.avatar}>
                         <LockOutlinedIcon />
                     </Avatar>
                     <Typography component="h1" variant="h5">
-                        Sign in
+                        Sign in to MyHealth
                     </Typography>
                     <form className={classes.form} noValidate>
                         <TextField
@@ -105,7 +118,7 @@ export default function SignInSide() {
                             color="primary"
                             className={classes.submit}
                         >
-                            Sign In
+                            <NavLink className={classes.signin} to="/dashboard"> Sign In</NavLink>
                         </Button>
                         <Grid container>
                             <Grid item xs>

@@ -201,7 +201,7 @@ export default function Pricing() {
                             Services
                         </Link>
                     </nav>
-                    <Button href="#" color="primary" variant="outlined" className={classes.link}>
+                    <Button color="primary" variant="outlined" className={classes.link}>
                         <NavLink to="/login">Login</NavLink>
                     </Button>
                 </Toolbar>
