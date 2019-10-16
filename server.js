@@ -1,6 +1,7 @@
 import express from 'express';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
+import { StaticRouter } from 'react-router-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ServerStyleSheets, ThemeProvider } from '@material-ui/styles';
 import App from './App';
@@ -30,6 +31,7 @@ function renderFullPage(html, css) {
 
 function handleRender(req, res) {
   const sheets = new ServerStyleSheets();
+  const context = {};
 
   // Render the component to a string.
   const html = ReactDOMServer.renderToString(
@@ -37,7 +39,9 @@ function handleRender(req, res) {
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
-        <App />
+          <StaticRouter location={req.url} context={context}>
+              <App />
+          </StaticRouter>
       </ThemeProvider>,
     ),
   );
