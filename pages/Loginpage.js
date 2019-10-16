@@ -63,7 +63,6 @@ const useStyles = makeStyles(theme => ({
         color: "white",
         textDecoration: "none",
     }
-
 }));
 
 export default function SignInSide() {

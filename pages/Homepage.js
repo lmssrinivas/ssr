@@ -136,6 +136,9 @@ const useStyles = makeStyles(theme => ({
     },
     doctorContainer: {
         marginTop: `20px`,
+    },
+    signin: {
+        textDecoration: "none",
     }
 }));
 const tiers = [
@@ -202,7 +205,7 @@ export default function Pricing() {
                         </Link>
                     </nav>
                     <Button color="primary" variant="outlined" className={classes.link}>
-                        <NavLink to="/login">Login</NavLink>
+                        <NavLink className={classes.signin} to="/login">Login</NavLink>
                     </Button>
                 </Toolbar>
             </AppBar>
